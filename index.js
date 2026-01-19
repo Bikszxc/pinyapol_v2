@@ -34,8 +34,6 @@ async function checkForUpdates() {
             const details = steamDetails.find(d => d.publishedfileid === track.mod_id);
             if (!details) continue;
 
-            console.log(details);
-
             const lastUpdatedSteam = parseInt(details.time_updated);
             const lastUpdatedDb = parseInt(track.last_updated);
 
@@ -108,6 +106,8 @@ client.once('ready', () => {
 
     const interval = process.env.CHECK_INTERVAL_MS || 300000; // Default 5 mins
     setInterval(checkForUpdates, interval);
+
+    console.log(`Running...`);
 
     // Initial check on startup
     checkForUpdates();
