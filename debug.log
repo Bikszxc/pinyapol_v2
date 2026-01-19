@@ -1,0 +1,71 @@
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:59480) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: ⚙️  override existing env vars with { override: true }[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:49532) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:67652) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] [object Object]
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: ⚙️  suppress all logs with { quiet: true }[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:64396) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] [object Object]
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:86980) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] [object Object]
+[LOG] woah
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:28660) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] [object Object]
+[LOG] woah
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:36348) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] Update detected for mod: LBJson Test Ver.
+[ERROR] Error in notifyUpdate: Error: Expected the value to be a string or number
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:78060) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] Update detected for mod: LBJson Test Ver.
+[LOG] Checking for workshop updates...
+[LOG] Update detected for mod: LBJson Test Ver.
+[LOG] Checking for workshop updates...
+[LOG] Update detected for mod: LBJson Test Ver.
+[LOG] [dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit[0m
+[LOG] Logged in as Pinyapol#7927!
+[LOG] Checking for workshop updates...
+[ERROR] (node:83340) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[LOG] Update detected for mod: LBJson Test Ver.
