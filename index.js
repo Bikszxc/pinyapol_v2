@@ -106,7 +106,7 @@ async function notifyUpdate(channelId, details) {
 
 let lastStatusKey = null;
 
-async function updateServerStatus() {
+async function updateServerStatus(silent = false) {
     console.log('Checking for server status changes...');
     try {
         const status = await getServerStatus();
@@ -116,6 +116,43 @@ async function updateServerStatus() {
             console.warn('STATUS_CHANNEL_ID not set, skipping status check.');
             return;
         }
+
+        // Determine styling based on state
+        let statusEmoji = '⚪';
+        let accentColor = 0x808080; // Gray
+        let displayLabel = status.label;
+
+        if (status.state === 'running') {
+            statusEmoji = '🟢';
+            accentColor = 0x2ECC71; // Green
+            displayLabel = 'Server is Online';
+        } else if (status.state === 'restarting_scheduled') {
+            statusEmoji = '⏳';
+            accentColor = 0x9B59B6; // Purple
+            displayLabel = `Scheduled ${status.type} Restart`;
+        } else if (status.state === 'restarting_normal') {
+            statusEmoji = '🟠';
+            accentColor = 0xE67E22; // Orange
+            displayLabel = 'Server is Restarting';
+        } else if (status.state === 'starting') {
+            statusEmoji = '🟡';
+            accentColor = 0xF1C40F; // Yellow
+            displayLabel = 'Server is Initializing';
+        } else if (status.state === 'offline' || status.state === 'stopping') {
+            statusEmoji = '🔴';
+            accentColor = 0xE74C3C; // Red
+            displayLabel = 'Server is Offline';
+        }
+
+        // Update Bot Activity (Always update this to reflect player counts)
+        let activityLabel = `${statusEmoji} ${displayLabel}`;
+        if (status.state === 'running') {
+            activityLabel = `🟢 Online | ${status.players} / ${status.maxPlayers} Players`;
+        } else if (status.state === 'restarting_scheduled') {
+            activityLabel = `⏳ Restarting | ${status.countdown.includes(':') ? 'Countdown' : status.label}`;
+        }
+
+        client.user.setActivity(activityLabel, { type: ActivityType.Custom });
 
         // Generate a unique key for the current state to detect changes
         let currentKey = status.state;
@@ -143,36 +180,14 @@ async function updateServerStatus() {
         }
 
         // Only send a new message if the state has changed
-        if (currentKey === lastStatusKey) return;
+        if (currentKey === lastStatusKey) return status;
 
         lastStatusKey = currentKey;
         console.log(`State change detected: ${currentKey}. Sending notification...`);
 
-        // Determine styling based on state
-        let statusEmoji = '⚪';
-        let accentColor = 0x808080; // Gray
-        let displayLabel = status.label;
-
-        if (status.state === 'running') {
-            statusEmoji = '🟢';
-            accentColor = 0x2ECC71; // Green
-            displayLabel = 'Server is Online';
-        } else if (status.state === 'restarting_scheduled') {
-            statusEmoji = '⏳';
-            accentColor = 0x9B59B6; // Purple
-            displayLabel = `Scheduled ${status.type} Restart`;
-        } else if (status.state === 'restarting_normal') {
-            statusEmoji = '🟠';
-            accentColor = 0xE67E22; // Orange
-            displayLabel = 'Server is Restarting';
-        } else if (status.state === 'starting') {
-            statusEmoji = '🟡';
-            accentColor = 0xF1C40F; // Yellow
-            displayLabel = 'Server is Initializing';
-        } else if (status.state === 'offline' || status.state === 'stopping') {
-            statusEmoji = '🔴';
-            accentColor = 0xE74C3C; // Red
-            displayLabel = 'Server is Offline';
+        if (silent) {
+            console.log('Silent mode: Status state initialized, skipping notification.');
+            return status;
         }
 
         // Match notifyUpdate pattern exactly
@@ -227,16 +242,6 @@ async function updateServerStatus() {
         statusContainer
             .addSeparatorComponents(footerSeparator)
             .addTextDisplayComponents(footerText);
-
-        // Update Bot Activity
-        let activityLabel = `${statusEmoji} ${displayLabel}`;
-        if (status.state === 'running') {
-            activityLabel = `🟢 Online | ${status.players} / ${status.maxPlayers} Players`;
-        } else if (status.state === 'restarting_scheduled') {
-            activityLabel = `⏳ Restarting | ${status.countdown.includes(':') ? 'Countdown' : status.label}`;
-        }
-
-        client.user.setActivity(activityLabel, { type: ActivityType.Custom });
 
         const channel = await client.channels.fetch(channelId);
         if (!channel) return;
@@ -296,7 +301,7 @@ client.once('clientReady', () => {
 
     // Initial checks
     checkForUpdates();
-    updateServerStatus();
+    updateServerStatus(true);
 
     // --- WebSocket Setup (Real-time) ---
     const socket = new PteroSocket();
